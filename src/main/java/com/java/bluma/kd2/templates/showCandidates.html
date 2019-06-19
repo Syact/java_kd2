@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Candidates</title>
+</head>
+<body>
+    <table class="table table-bordered" >
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Votes</th>
+            <th>Party</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="candidate : ${allCandidates}">
+            <td th:text="${candidate.getId_c()}"> 1 </td>
+            <td th:text="${candidate.getName()}"> Janis </td>
+            <td th:text="${candidate.getSurname()}"> Berzins </td>
+            <td th:text="${candidate.getVotes()}"> 5 </td>
+            <td th:text="${candidate.getId_p()}"> Latvijai </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

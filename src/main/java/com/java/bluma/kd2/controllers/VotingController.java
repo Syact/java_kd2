@@ -1,12 +1,21 @@
 package com.java.bluma.kd2.controllers;
 
+import com.java.bluma.kd2.forms.AuthoriseForm;
+import com.java.bluma.kd2.forms.InsertNewPartyForm;
+import com.java.bluma.kd2.models.Candidate;
+import com.java.bluma.kd2.models.Party;
+import com.java.bluma.kd2.models.User;
 import com.java.bluma.kd2.services.CandidateService;
 import com.java.bluma.kd2.services.PartyService;
 import com.java.bluma.kd2.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class VotingController {
@@ -29,23 +38,26 @@ public class VotingController {
     }
 
     @GetMapping(value="/authorise")
-    public String authoriseGet()
+    public String authoriseGet(Model model)
     {
-        return "";
+        model.addAttribute("authoriseForm", new AuthoriseForm());
+        return "authorise";
     }
 
 
     @PostMapping(value="/authorise")
-    public String authorisePost()
+    public String authorisePost(@ModelAttribute AuthoriseForm authoriseForm)
     {
+
         return "";
     }
 
 
     @GetMapping(value="/admin/insertnewparty")
-    public String insertPartyGet()
+    public String insertPartyGet(Model model)
     {
-        return "";
+        model.addAttribute("insertNewPartyForm", new InsertNewPartyForm());
+        return "insertNewParty";
     }
 
     @PostMapping(value="/admin/insertnewparty")
@@ -68,15 +80,19 @@ public class VotingController {
     }
 
     @GetMapping(value="/admin/showallparties")
-    public String showAllPartiesGet()
+    public String showAllPartiesGet(Model model)
     {
-        return "";
+        List<Party> allParties = partyService.retrieveAllParties();
+        model.addAttribute("allParties", allParties);
+        return "showAllParties";
     }
 
     @GetMapping(value="/admin/showallcandidates")
-    public String showAllcandidatesGet()
+    public String showAllcandidatesGet(Model model)
     {
-        return "";
+        List<Candidate> allCandidates = candidateService.retrieveAllCandidates();
+        model.addAttribute("allCandidates", allCandidates);
+        return "showAllCandidates";
     }
 
 
@@ -87,9 +103,11 @@ public class VotingController {
     }
 
     @GetMapping(value="/admin/showallusers")
-    public String showAllUsersGet()
+    public String showAllUsersGet(Model model)
     {
-        return "";
+        List<User> allUsers = userService.retrieveAllUsers();
+        model.addAttribute("allUsers", allUsers);
+        return "showAllUsers";
     }
 
     @GetMapping(value="/user/vote/{id}")

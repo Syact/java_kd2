@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>All users</title>
+</head>
+<body>
+    <table class="table table-bordered" >
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Is voted</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${allUsers}">
+            <td th:text="${user.getId_u()}"> 1 </td>
+            <td th:text="${user.getUsername()}"> Berzins </td>
+            <td th:text="${user.isVoted()}"> false </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

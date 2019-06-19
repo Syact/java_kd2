@@ -38,4 +38,12 @@ public class PartyService {
         partyRepo.save(party1);
         partyRepo.save(party2);
     }
+
+    public List<Party> retrieveAllParties(){
+        List<Party> parties = new ArrayList<>();
+        for (Party party:partyRepo.findAll()) {
+            parties.add(party);
+        }
+        return parties;
+    }
 }

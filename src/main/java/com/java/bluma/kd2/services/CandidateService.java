@@ -48,4 +48,12 @@ public class CandidateService {
         candidateRepo.save(cand3);
         candidateRepo.save(cand4);
     }
+
+    public List<Candidate> retrieveAllCandidates(){
+        List<Candidate> candidates = new ArrayList<>();
+        for (Candidate cand:candidateRepo.findAll()) {
+            candidates.add(cand);
+        }
+        return candidates;
+    }
 }

@@ -40,4 +40,12 @@ public class UserService {
         userRepo.save(user2);
         userRepo.save(user3);
     }
+
+    public List<User> retrieveAllUsers(){
+        List<User> users = new ArrayList<>();
+        for (User user:userRepo.findAll()) {
+            users.add(user);
+        }
+        return users;
+    }
 }

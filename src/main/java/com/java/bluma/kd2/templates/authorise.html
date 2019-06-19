@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Authorise</title>
+</head>
+<body>
+    <form action="#" th:action="@{/authorise}" th:object="${authoriseForm}" method="post">
+        <label>Lietotajvards</label>
+        <input type="text" id="userName" th:field="*{userName}" autocomplete="off"/>
+        <label>Parole</label>
+        <input type="password" id="password" th:field="*{password}" autocomplete="off"/>
+        <input id="submitUserInfo" class="buttons" type="submit" value="Autorizeties"/>
+
+    </form>
+</body>
+</html>

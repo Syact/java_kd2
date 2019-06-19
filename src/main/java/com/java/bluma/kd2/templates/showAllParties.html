@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>All parties</title>
+</head>
+<body>
+<table class="table table-bordered" >
+    <thead>
+    <tr>
+        <th>Party id</th>
+        <th>Party title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="party : ${allParties}">
+        <td th:text="${party.getId_p()}"> 1 </td>
+        <td th:text="${party.getTitle()}"> Latvijai </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
