@@ -18,6 +18,7 @@ public class User implements Serializable {
     }
 
     public User(String username, String password, boolean isVoted) {
+        this.id_u = idCounter();
         setUsername(username);
         setPassword(password);
         setVoted(isVoted);

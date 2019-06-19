@@ -8,7 +8,7 @@ public class Party {
 
     @Id
     private int id_p;
-    private static int partyCounter = 20;
+    private static int partyCounter = 1000;
 
     private String title;
 
@@ -16,6 +16,7 @@ public class Party {
     }
 
     public Party(String title) {
+        this.id_p = idCounter();
         setTitle(title);
     }
 
@@ -24,7 +25,7 @@ public class Party {
     }
 
     public void setId_p(int id_p) {
-        this.id_p = id_p;
+        this.id_p = idCounter();
     }
 
     public String getTitle() {
@@ -33,5 +34,17 @@ public class Party {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "Party{" +
+                "id_p=" + id_p +
+                ", title='" + title + '\'' +
+                '}';
+    }
+
+    public static int idCounter(){
+        return partyCounter++;
     }
 }
