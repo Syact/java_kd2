@@ -14,6 +14,8 @@ public class CandidateService {
 
     @Autowired
     private CandidateRepo candidateRepo;
+    @Autowired
+    private PartyService partyService;
 
     public List<Candidate> retrieveAllCandidatesInParty(Party party_id) {
 
@@ -32,5 +34,18 @@ public class CandidateService {
         }
         System.err.println("Candidates not found in this party");
         return null;
+    }
+
+    public void generateCandidates(){
+
+        Candidate cand1 = new Candidate("Janis", "Berzins", 0, partyService.retrievePartyByName("Latvijai"));
+        Candidate cand2 = new Candidate("Baiba", "Jauka", 2, partyService.retrievePartyByName("Latvijai"));
+        Candidate cand3 = new Candidate("Liga", "Forsa", 5, partyService.retrievePartyByName("Eiropai"));
+        Candidate cand4 = new Candidate("Peteris", "Kalnins", 0, partyService.retrievePartyByName("Eiropai"));
+
+        candidateRepo.save(cand1);
+        candidateRepo.save(cand2);
+        candidateRepo.save(cand3);
+        candidateRepo.save(cand4);
     }
 }

@@ -30,4 +30,12 @@ public class PartyService {
         return null;
     }
 
+    public void generateParties(){
+
+        Party party1 = new Party("Latvijai");
+        Party party2 = new Party("Eiropai");
+
+        partyRepo.save(party1);
+        partyRepo.save(party2);
+    }
 }

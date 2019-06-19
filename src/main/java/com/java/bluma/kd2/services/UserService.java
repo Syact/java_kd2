@@ -29,4 +29,15 @@ public class UserService {
         System.err.println("User not found");
         return null;
     }
+
+    public void generateUsers(){
+
+        User user1 = new User("admin", "admin", false);
+        User user2 = new User("user1", "123", false);
+        User user3 = new User("user2", "321", true);
+
+        userRepo.save(user1);
+        userRepo.save(user2);
+        userRepo.save(user3);
+    }
 }
